@@ -55,7 +55,14 @@ CUSTOM_APPS = [
     "apps.news",
 ]
 
-THIRD_PARTY_APPS = ["rest_framework", "drf_yasg", "corsheaders", "django_cleanup.apps.CleanupConfig", "ckeditor"]
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "drf_yasg",
+    "corsheaders",
+    "django_cleanup.apps.CleanupConfig",
+    "ckeditor",
+    "ckeditor_uploader",
+]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework.authentication.SessionAuthentication",),
