@@ -21,7 +21,15 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ["title_uz"]}
 
     fieldsets = (
-        ("Основная информация", {"fields": ("cover",)}),
+        (
+            "Основная информация",
+            {
+                "fields": (
+                    "active",
+                    "cover",
+                )
+            },
+        ),
         ("узбекский 🇺🇿", {"fields": ("title_uz", "sub_title_uz", "text_uz", "slug")}),
         ("русский 🇷🇺", {"fields": ("title_ru", "sub_title_ru", "text_ru")}),
         ("английский", {"fields": ("title_en", "sub_title_en", "text_en")}),
@@ -44,6 +52,7 @@ class StaticPageAdmin(admin.ModelAdmin):
     list_filter = ("active", "created_at")
 
     fieldsets = (
+        ("Основная информация", {"fields": ("active",)}),
         (
             "узбекский 🇺🇿",
             {
