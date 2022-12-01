@@ -46,12 +46,16 @@ DJANGO_APPS = [
 
 CUSTOM_APPS = [
     "apps.common",
+    "apps.main",
+    "apps.product",
+    "apps.news",
 ]
 
 THIRD_PARTY_APPS = [
     "rest_framework",
     "drf_yasg",
     "corsheaders",
+    "django_cleanup.apps.CleanupConfig",
 ]
 
 REST_FRAMEWORK = {
