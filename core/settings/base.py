@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ["*"]
 
 # Application definition
 DJANGO_APPS = [
+    "modeltranslation",
     "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
