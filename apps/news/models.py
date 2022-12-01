@@ -16,6 +16,7 @@ class News(BaseModel, ActiveModel):
         db_table = "news"
         verbose_name = _("News")
         verbose_name_plural = _("News")
+        ordering = ("-created_at",)
 
     def __str__(self):
         return self.title
@@ -30,6 +31,7 @@ class StaticPage(BaseModel, ActiveModel):
         db_table = "static_page"
         verbose_name = _("Static Page ")
         verbose_name_plural = _("Static Pages")
+        ordering = ("-created_at",)
 
     def __str__(self):
         return self.title
