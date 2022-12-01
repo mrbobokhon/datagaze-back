@@ -10,12 +10,26 @@ class News(BaseModel, ActiveModel):
     sub_title = models.CharField(max_length=255, verbose_name=_("sub title"))
     cover = models.ImageField(upload_to="news/cover/")
     slug = models.SlugField(max_length=255, verbose_name=_("slug"))
-    text = RichTextUploadingField
+    text = RichTextUploadingField(verbose_name=_("text"))
 
     class Meta:
         db_table = "news"
         verbose_name = _("News")
         verbose_name_plural = _("News")
+
+    def __str__(self):
+        return self.title
+
+
+class StaticPage(BaseModel, ActiveModel):
+    title = models.CharField(max_length=255, verbose_name=_("title"))
+    sub_title = models.CharField(max_length=255, verbose_name=_("sub title"))
+    text = RichTextUploadingField(verbose_name=_("text"))
+
+    class Meta:
+        db_table = "static_page"
+        verbose_name = _("Static Page ")
+        verbose_name_plural = _("Static Pages")
 
     def __str__(self):
         return self.title
