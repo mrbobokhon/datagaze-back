@@ -16,7 +16,7 @@ class NewsSingleView(generics.RetrieveAPIView):
 
 
 class StaticPageListView(APIView):
-    def get(self, obj):
+    def get(self, obj, *args, **kwargs):
         queryset = StaticPage.objects.filter(active=True).first()
         serializer = StaticPageListSerializer(queryset, context={"request": self.request})
         return Response(serializer.data)

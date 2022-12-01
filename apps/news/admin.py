@@ -32,7 +32,7 @@ class ProductAdmin(admin.ModelAdmin):
         ),
         ("узбекский 🇺🇿", {"fields": ("title_uz", "sub_title_uz", "text_uz", "slug")}),
         ("русский 🇷🇺", {"fields": ("title_ru", "sub_title_ru", "text_ru")}),
-        ("английский", {"fields": ("title_en", "sub_title_en", "text_en")}),
+        ("английский 🇺🇸", {"fields": ("title_en", "sub_title_en", "text_en")}),
     )
 
 
@@ -64,5 +64,5 @@ class StaticPageAdmin(admin.ModelAdmin):
             },
         ),
         ("русский 🇷🇺", {"fields": ("title_ru", "sub_title_ru", "text_ru")}),
-        ("английский", {"fields": ("title_en", "sub_title_en", "text_en")}),
+        ("английский 🇺🇸", {"fields": ("title_en", "sub_title_en", "text_en")}),
     )
