@@ -1,6 +1,6 @@
 from modeltranslation.translator import register, TranslationOptions
 
-from .models import Menu, Slider, Statistic
+from .models import Menu, Slider, Statistic, AboutUs, CompanyCertificate
 
 
 @register(Menu)
@@ -19,3 +19,16 @@ class SliderTranslation(TranslationOptions):
 @register(Statistic)
 class StatisticTranslation(TranslationOptions):
     fields = ("title",)
+
+
+@register(AboutUs)
+class AboutUsTranslation(TranslationOptions):
+    fields = ("title",)
+
+
+@register(CompanyCertificate)
+class CompanyCertificateTranslation(TranslationOptions):
+    fields = (
+        "title",
+        "text",
+    )
