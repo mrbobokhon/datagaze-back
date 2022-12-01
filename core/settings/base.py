@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+import os
+
 from pathlib import Path
+from django.utils.translation import gettext_lazy as _
 
 import environ
 
@@ -52,17 +55,10 @@ CUSTOM_APPS = [
     "apps.news",
 ]
 
-THIRD_PARTY_APPS = [
-    "rest_framework",
-    "drf_yasg",
-    "corsheaders",
-    "django_cleanup.apps.CleanupConfig",
-]
+THIRD_PARTY_APPS = ["rest_framework", "drf_yasg", "corsheaders", "django_cleanup.apps.CleanupConfig", "ckeditor"]
 
 REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework.authentication.SessionAuthentication",
-    ),
+    "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework.authentication.SessionAuthentication",),
     "DEFAULT_FILTER_BACKENDS": (
         "django_filters.rest_framework.DjangoFilterBackend",
         "rest_framework.filters.SearchFilter",
@@ -137,10 +133,35 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Model Translations
+MODELTRANSLATION_DEFAULT_LANGUAGE = "en"
+MODELTRANSLATION_LANGUAGES = (
+    "uz",
+    "ru",
+    "en",
+)
+MODELTRANSLATION_FALLBACK_LANGUAGES = ("uz", "ru", "en")
+MODELTRANSLATION_LANGUAGES_CHOICES = (
+    ("uz", _("uzbek")),
+    ("ru", _("russian")),
+    ("en", _("english")),
+)
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale"),
+]
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
 LANGUAGE_CODE = "en-us"
+
+gettext = lambda s: s  # noqa
+LANGUAGES = (
+    ("uz", gettext("Uzbek")),
+    ("en", gettext("English")),
+    ("ru", gettext("Russian")),
+)
 
 TIME_ZONE = "Asia/Tashkent"
 
@@ -157,6 +178,9 @@ STATICFILES_DIRS = (BASE_DIR / "staticfiles",)
 
 MEDIA_URL = "media/"
 MEDIA_ROOT = BASE_DIR / "media"
+
+# CKEDITOR
+CKEDITOR_UPLOAD_PATH = "ckeditor/contents/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
