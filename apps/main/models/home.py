@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
-from apps.common.models import OrderModel
+from apps.common.models import OrderModel, ActiveModel
 
 
 class Menu(OrderModel):
@@ -15,3 +15,42 @@ class Menu(OrderModel):
 
     def __str__(self):
         return self.title
+
+
+class Slider(OrderModel):
+    title = models.CharField(max_length=255, verbose_name=_("title"))
+    sub_title = models.CharField(max_length=255, verbose_name=_("sub_title"))
+    image = models.ImageField(upload_to="slider/image/", verbose_name=_("image"))
+
+    class Meta:
+        db_table = "slider"
+        verbose_name = _("Slider ")
+        verbose_name_plural = _("Sliders")
+        ordering = ("order",)
+
+    def __str__(self):
+        return self.title
+
+
+class Statistic(OrderModel, ActiveModel):
+    title = models.CharField(max_length=255, verbose_name=_("title"))
+    icon = models.ImageField(upload_to="statistic/icon/", verbose_name=_("icon"))
+
+    class Meta:
+        db_table = "statistic"
+        verbose_name = _("Statistic ")
+        verbose_name_plural = _("Statistics")
+        ordering = ("order",)
+
+    def __str__(self):
+        return self.title
+
+
+class Partner(OrderModel):
+    icon = models.ImageField(upload_to="statistic/icon/", verbose_name=_("icon"))
+
+    class Meta:
+        db_table = "partner"
+        verbose_name = _("Partner ")
+        verbose_name_plural = _("Partner")
+        ordering = ("order",)
