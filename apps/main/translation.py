@@ -23,12 +23,16 @@ class StatisticTranslation(TranslationOptions):
 
 @register(AboutUs)
 class AboutUsTranslation(TranslationOptions):
-    fields = ("title",)
+    fields = (
+        "title",
+        "sub_title",
+    )
 
 
 @register(CompanyCertificate)
 class CompanyCertificateTranslation(TranslationOptions):
     fields = (
         "title",
+        "sub_title",
         "text",
     )

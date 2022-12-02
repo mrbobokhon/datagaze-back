@@ -13,7 +13,7 @@ class AboutUs(ActiveModel):
     class Meta:
         db_table = "about_us"
         verbose_name = _("About Us ")
-        verbose_name_plural = _("About Us'")
+        verbose_name_plural = _("5 About Us")
 
     def __str__(self):
         return self.title
@@ -21,13 +21,14 @@ class AboutUs(ActiveModel):
 
 class CompanyCertificate(BaseModel, ActiveModel):
     title = models.CharField(max_length=255, verbose_name=_("title"))
+    certificate = models.ImageField(upload_to="company_certificate/images/", verbose_name=_("certificate"))
     sub_title = models.CharField(max_length=255, verbose_name=_("sub_title"))
     text = RichTextUploadingField(verbose_name=_("text"))
 
     class Meta:
         db_table = "company_certificate"
-        verbose_name = _("CompanyCertificate ")
-        verbose_name_plural = _("CompanyCertificates")
+        verbose_name = _("Company Certificate ")
+        verbose_name_plural = _("6 Company Certificates")
 
     def __str__(self):
         return self.title
@@ -39,17 +40,18 @@ class Certificate(OrderModel, ActiveModel):
     class Meta:
         db_table = "certificate"
         verbose_name = _("Certificate ")
-        verbose_name_plural = _("Certificates")
+        verbose_name_plural = _("7 Certificates")
         ordering = ("order",)
 
 
 class SocialMedia(OrderModel):
     icon = models.ImageField(upload_to="social_media/icons/", verbose_name=_("icon"))
+    link = models.URLField(max_length=255, verbose_name=_("link"))
 
     class Meta:
         db_table = "social_media"
         verbose_name = _("SocialMedia ")
-        verbose_name_plural = _("SocialMedias")
+        verbose_name_plural = _("8 SocialMedias")
         ordering = ("order",)
 
 
@@ -60,5 +62,5 @@ class Contact(OrderModel):
     class Meta:
         db_table = "contact"
         verbose_name = _("Contact ")
-        verbose_name_plural = _("Contacts")
+        verbose_name_plural = _("9 Contacts")
         ordering = ("order",)
