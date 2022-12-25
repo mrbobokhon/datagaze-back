@@ -16,3 +16,5 @@
 
 6. ```python3 manage.py runserver```
 
+![Uploading Screenshot from 2021-10-02 09-29-13.png…]()
+![Screenshot from 2022-12-10 15-05-56](https://user-images.githubusercontent.com/86469941/209479013-6c267449-eb3a-4442-99a8-9c105a0427c5.png)
